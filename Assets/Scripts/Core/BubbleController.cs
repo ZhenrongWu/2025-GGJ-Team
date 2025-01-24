@@ -11,8 +11,10 @@ namespace Core
         [SerializeField] private float maxDistance   = 10;
         [SerializeField] private float inputCooldown = .2f;
 
-        [Space(10)] [SerializeField] private int        extraBubbleCount;
-        [SerializeField]             private GameObject bubble;
+        [Space(10)] [Range(0, 5)] [SerializeField]
+        private int extraBubbleCount;
+
+        [SerializeField] private GameObject bubble;
 
         private Rigidbody2D    _rigidbody2D;
         private SpriteRenderer _spriteRenderer;
@@ -40,9 +42,9 @@ namespace Core
 
         private void CreateBubbles()
         {
-            for (var i = 0; i < extraBubbleCount; i++)
+            for (var i = 1; i <= extraBubbleCount; i++)
                 Instantiate(bubble,
-                            new Vector2(transform.position.x + _spriteWidth, transform.position.y),
+                            new Vector2(transform.position.x + _spriteWidth * i, transform.position.y),
                             Quaternion.identity,
                             gameObject.transform);
         }
