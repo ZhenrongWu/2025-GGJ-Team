@@ -12,6 +12,7 @@ public class ArrowBehavior : MonoBehaviour
     [SerializeField]
     private AudioSource audioSource;
     public SpriteRenderer spriteRenderer;
+    bool IsPlaying = false;
 
     void Start()
     {
@@ -22,9 +23,11 @@ public class ArrowBehavior : MonoBehaviour
         if(audioSource == null){
             audioSource = GetComponent<AudioSource>();
         }
-
+        if(CurrentBubble == null){
+            Destroy(gameObject);
+        }
     }
-    bool IsPlaying = false;
+    
     void Update()
     {
         LeftTime -= Time.deltaTime;
