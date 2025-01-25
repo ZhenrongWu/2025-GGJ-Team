@@ -5,13 +5,15 @@ namespace Core
 {
     public class BubbleAnimation : MonoBehaviour
     {
-        private Animator _animator;
-        private Camera   _mainCamera;
+        private Animator         _animator;
+        private Camera           _mainCamera;
+        private BubbleController _bubbleController;
 
         private void Start()
         {
-            _animator   = GetComponent<Animator>();
-            _mainCamera = Camera.main;
+            _animator         = GetComponent<Animator>();
+            _bubbleController = transform.parent.GetComponent<BubbleController>();
+            _mainCamera       = Camera.main;
         }
 
         private void Update()
@@ -33,7 +35,11 @@ namespace Core
         {
             var stateInfo = _animator.GetCurrentAnimatorStateInfo(0);
             if (stateInfo.normalizedTime >= 1 && stateInfo.IsName(animationName))
+            {
+                if (_bubbleController.ExtraBubbleCount > 0) _bubbleController.ExtraBubbleCount--;
+
                 Destroy(gameObject);
+            }
         }
     }
 }

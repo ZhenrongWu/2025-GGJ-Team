@@ -25,6 +25,12 @@ namespace Core
         private Vector2 _screenBounds;
         private float   _nextInputTime;
 
+        public int ExtraBubbleCount
+        {
+            get => extraBubbleCount;
+            set => extraBubbleCount = value;
+        }
+
         private void Start()
         {
             _rigidbody2D    = GetComponent<Rigidbody2D>();
