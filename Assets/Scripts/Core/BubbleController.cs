@@ -43,10 +43,10 @@ namespace Core
         private void CreateBubbles()
         {
             for (var i = 1; i <= extraBubbleCount; i++)
-                Instantiate(bubble,
-                            new Vector2(transform.position.x + _spriteWidth * i, transform.position.y),
-                            Quaternion.identity,
-                            gameObject.transform);
+            {
+                var position = new Vector2(transform.position.x + _spriteWidth * i, transform.position.y);
+                Instantiate(bubble, position, Quaternion.identity, gameObject.transform);
+            }
         }
 
         private void Update()
