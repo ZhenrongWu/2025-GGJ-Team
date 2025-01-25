@@ -42,5 +42,23 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 1113629523
+    locked: 0
+  - name: Platform
+    uniqueID: 3879231169
+    locked: 0
+  - name: Character
+    uniqueID: 3207281649
+    locked: 0
+  - name: Bubble
+    uniqueID: 1307325393
+    locked: 0
+  - name: HUD
+    uniqueID: 3035259321
+    locked: 0
+  - name: UI
+    uniqueID: 2047341717
+    locked: 0
   m_RenderingLayers:
   - Default

@@ -12,7 +12,7 @@ namespace Core
         [SerializeField] private float inputCooldown = .2f;
 
         [Space(10)] [Range(1, 5)] [SerializeField]
-        private int bubbleCount;
+        public int bubbleCount;
 
         [SerializeField] private GameObject bubble;
 
@@ -37,7 +37,6 @@ namespace Core
             if (_mainCamera != null)
                 _screenBounds = _mainCamera.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
 
-            CreateBubbles();
         }
 
         private void CreateBubbles()
@@ -52,7 +51,11 @@ namespace Core
         private void Update()
         {
             HandlePlayerInput();
-            CheckAndBounceAtBounds();
+            UpdatePositionToMidPoint();
+            if(transform.childCount == 0){
+                gameObject.SetActive(false);
+            }
+            //CheckAndBounceAtBounds();
         }
 
         private void HandlePlayerInput()
@@ -73,6 +76,8 @@ namespace Core
 
             if (_rigidbody2D.linearVelocity.magnitude < maxSpeed)
                 _rigidbody2D.AddForce(finalForce);
+
+
         }
 
         private void CheckAndBounceAtBounds()
@@ -95,6 +100,19 @@ namespace Core
 
             _rigidbody2D.linearVelocity = Vector2.zero;
             _rigidbody2D.AddForce(direction * boundForce);
+        }
+        private void UpdatePositionToMidPoint(){
+            int count = transform.childCount;
+            if(count == 0){
+                Destroy(gameObject);
+            }
+            else{
+                Vector3 midPoint = (transform.GetChild(0).position + transform.GetChild(count-1).position) / 2 ;
+                Vector3 Dir = transform.position - midPoint;
+                for(int i = 0; i < count; i++){
+                    transform.GetChild(i).position += Dir * Time.deltaTime;
+                }
+            }
         }
     }
 }
