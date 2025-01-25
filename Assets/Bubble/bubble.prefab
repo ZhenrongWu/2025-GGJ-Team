@@ -13,8 +13,7 @@ GameObject:
   - component: {fileID: 4392616819638632093}
   - component: {fileID: 3928885411682551394}
   - component: {fileID: 3442056850051970180}
-  - component: {fileID: 6356041081168957066}
-  - component: {fileID: 7608565091706261977}
+  - component: {fileID: 5415210367575346443}
   m_Layer: 0
   m_Name: bubble
   m_TagString: Untagged
@@ -31,8 +30,8 @@ Transform:
   m_GameObject: {fileID: 240284958328512785}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.02, y: 0.23, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -81,12 +80,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9136834448258697486, guid: 417273306a069ce44b6b6f8f6285c4d7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 417273306a069ce44b6b6f8f6285c4d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.49, y: 2.46}
+  m_Size: {x: 3.44, y: 3.38}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -104,8 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3e19a5c34ab9e44fb4ba56e6dee8096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 3442056850051970180}
-  NextBubble: {fileID: 0}
+  BubbleAnimator: {fileID: 3442056850051970180}
   PopSound: {fileID: 3928885411682551394}
 --- !u!82 &3928885411682551394
 AudioSource:
@@ -226,7 +224,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!58 &6356041081168957066
+--- !u!58 &5415210367575346443
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -260,32 +258,5 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 1.245
---- !u!50 &7608565091706261977
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 240284958328512785}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Offset: {x: 0, y: 0.15}
+  m_Radius: 1.2211611

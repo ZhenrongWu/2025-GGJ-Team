@@ -3,27 +3,28 @@ using UnityEngine;
 
 public class ArrowBehavior : MonoBehaviour
 {
-    public GameObject CurrentBubble;
+    public GameObject Bubbles;
     public float BubbleLifeTime;
     public float LeftTime;
     public Vector3 Pos;
     [SerializeField]
     private AudioClip ClickSound;
     [SerializeField]
-    private AudioSource audioSource;
-    public SpriteRenderer spriteRenderer;
+    private AudioSource Audio;
+    [SerializeField]
+    private SpriteRenderer Sprite;
     bool IsPlaying = false;
 
     void Start()
     {
         LeftTime = BubbleLifeTime;
-        if(spriteRenderer == null){
-            spriteRenderer = GetComponent<SpriteRenderer>();
+        if(Sprite == null){
+            Sprite = GetComponent<SpriteRenderer>();
         }
-        if(audioSource == null){
-            audioSource = GetComponent<AudioSource>();
+        if(Audio == null){
+            Audio = GetComponent<AudioSource>();
         }
-        if(CurrentBubble == null){
+        if(Bubbles == null || Bubbles.transform.childCount == 0){
             Destroy(gameObject);
         }
     }
@@ -31,57 +32,62 @@ public class ArrowBehavior : MonoBehaviour
     void Update()
     {
         LeftTime -= Time.deltaTime;
-        if(LeftTime<0&&CurrentBubble!=null){
-            GameObject Temp = CurrentBubble.GetComponent<BubbleStateController>().NextBubble;
-            CurrentBubble.GetComponent<BubbleStateController>().DestoryBubble();
-            if(Temp!=null){
+        if( LeftTime < 0 && Bubbles.transform.childCount != 0 ){
+            Bubbles.transform.GetChild(0).GetComponent<BubbleStateController>().DestoryBubble();
+            if(Bubbles.transform.childCount > 1){
                 LeftTime = BubbleLifeTime;
-                CurrentBubble = Temp;
             }
-            else{//end of the chain
-                Destroy(gameObject);
+            else{
+                //No more bubbles
+                gameObject.SetActive(false);
                 //gameover
             }
         }
         else{
-            transform.position = Pos+CurrentBubble.transform.position;
+            transform.position = Pos+Bubbles.transform.GetChild(0).position;
             if(LeftTime > (BubbleLifeTime*2)/3){
-                if(math.sin((LeftTime-(BubbleLifeTime*2)/3)*8)>0){
-                    spriteRenderer.enabled = true;
+                //normal point
+                float FlashSpeed = 8;
+                if(Mathf.Sin(LeftTime*FlashSpeed)>0){
+                    Sprite.enabled = true;
                     if(!IsPlaying){
-                        audioSource.PlayOneShot(ClickSound);
+                        Audio.PlayOneShot(ClickSound);
                         IsPlaying = true;
                     }
                 }
                 else{
-                    spriteRenderer.enabled = false;
+                    Sprite.enabled = false;
                     IsPlaying = false;
                 }
             }
             else if(LeftTime > BubbleLifeTime/3){
-                if(math.sin((LeftTime-(BubbleLifeTime*2)/3)*16)>0){
-                    spriteRenderer.enabled = true;
+                //faster point
+                float FlashSpeed = 16;
+                if(Mathf.Sin(LeftTime*FlashSpeed)>0){
+                    Sprite.enabled = true;
                     if(!IsPlaying){
-                        audioSource.PlayOneShot(ClickSound);
+                        Audio.PlayOneShot(ClickSound);
                         IsPlaying = true;
                     }
                 }
                 else{
-                    spriteRenderer.enabled = false;
+                    Sprite.enabled = false;
                     IsPlaying = false;
                 }
                     
             }
             else{
-                if(math.sin(LeftTime*30)>0){
-                    spriteRenderer.enabled = true;
+                //urgent point
+                float FlashSpeed = 30;
+                if(Mathf.Sin(LeftTime*FlashSpeed)>0){
+                    Sprite.enabled = true;
                     if(!IsPlaying){
-                        audioSource.PlayOneShot(ClickSound);
+                        Audio.PlayOneShot(ClickSound);
                         IsPlaying = true;
                     }
                 }
                 else{
-                    spriteRenderer.enabled = false;
+                    Sprite.enabled = false;
                     IsPlaying = false;
                 }
             }
