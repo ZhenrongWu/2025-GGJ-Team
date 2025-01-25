@@ -14,6 +14,10 @@ public class Judge : MonoBehaviour
             for(int i = 0; i < other.transform.parent.childCount; i++){
                 other.transform.parent.GetChild(i).GetComponent<BubbleStateController>().DestoryBubble();
             }
+
+
+
+            ///judege 
             SpriteRenderer.sprite = Sprite1;
         }
     }

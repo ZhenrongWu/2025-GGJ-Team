@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2026289278409169385
 Transform:
   m_ObjectHideFlags: 0
@@ -101,9 +101,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7711103b08296914983ca83b34b32293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bubbles: {fileID: 0}
+  Target: {fileID: 0}
   BubbleLifeTime: 5
-  LeftTime: 0
+  Counter: 0
   Pos: {x: 0, y: 1, z: 0}
   ClickSound: {fileID: 8300000, guid: fe137155d4b6d6f45944521c46a6b710, type: 3}
   Audio: {fileID: 4954125526374418892}
