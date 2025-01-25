@@ -1,14 +1,10 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: 5f50420bc5a57d74c8a826d80ecada2b
-=======
-guid: 9f8a037fc413eac49a776a27587d3646
->>>>>>> UI
+guid: a7b705c82be891d4d8c9ca43e80a37e5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4781373940957465942
-    second: exit_0
+      213: -2270382132492453729
+    second: u_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -76,11 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-<<<<<<< HEAD
     maxTextureSize: 2048
-=======
-    maxTextureSize: 256
->>>>>>> UI
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -104,8 +96,6 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-<<<<<<< HEAD
-=======
   - serializedVersion: 4
     buildTarget: Android
     maxTextureSize: 2048
@@ -119,18 +109,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
->>>>>>> UI
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: exit_0
+      name: u_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1021
-        height: 260
+        width: 278
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: aa2bbe6cbb525adb0800000000000000
-      internalID: -4781373940957465942
+      spriteID: f98b460ca7bfd70e0800000000000000
+      internalID: -2270382132492453729
       vertices: []
       indices: 
       edges: []
@@ -159,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      exit_0: -4781373940957465942
+      u_0: -2270382132492453729
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

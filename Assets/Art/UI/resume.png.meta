@@ -1,14 +1,19 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: 5f50420bc5a57d74c8a826d80ecada2b
-=======
-guid: 9f8a037fc413eac49a776a27587d3646
->>>>>>> UI
+guid: cb1e920b7ecf7734a903b2fee0bb6571
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4781373940957465942
-    second: exit_0
+      213: -6450244300066960991
+    second: resume_0
+  - first:
+      213: -2600156982663379757
+    second: resume_1
+  - first:
+      213: 4413668017680353865
+    second: resume_2
+  - first:
+      213: 6658810768773810568
+    second: resume_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -76,11 +81,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-<<<<<<< HEAD
-    maxTextureSize: 2048
-=======
     maxTextureSize: 256
->>>>>>> UI
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -104,8 +105,6 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-<<<<<<< HEAD
-=======
   - serializedVersion: 4
     buildTarget: Android
     maxTextureSize: 2048
@@ -119,28 +118,27 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
->>>>>>> UI
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: exit_0
+      name: resume_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1021
-        height: 260
+        width: 247
+        height: 248
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: aa2bbe6cbb525adb0800000000000000
-      internalID: -4781373940957465942
+      spriteID: 8890f434d19d86c50800000000000000
+      internalID: 6658810768773810568
       vertices: []
       indices: 
       edges: []
@@ -149,7 +147,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 7cf6a67c8dad3aa49abd47d411b6dc04
     internalID: 0
     vertices: []
     indices: 
@@ -159,7 +157,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      exit_0: -4781373940957465942
+      resume_0: 6658810768773810568
+      resume_1: -2600156982663379757
+      resume_2: 4413668017680353865
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
