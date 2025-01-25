@@ -171,7 +171,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 50}
+  m_AnchoredPosition: {x: 0, y: 100}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3082308338725247852
@@ -213,6 +213,7 @@ GameObject:
   - component: {fileID: 9169773208922273339}
   - component: {fileID: 2489255679690261047}
   - component: {fileID: 8408308053154431122}
+  - component: {fileID: 2434212413287098595}
   m_Layer: 5
   m_Name: ResumeButton
   m_TagString: Untagged
@@ -297,7 +298,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -337,6 +338,28 @@ MonoBehaviour:
   sceneName: MainMenu
   loadToColor: {r: 0, g: 0, b: 0, a: 1}
   duration: 1
+--- !u!95 &2434212413287098595
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3682433188222850091}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6848f2bd12b05eb4db2aaf1ca6fb890b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4542353979189824293
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,7 +409,7 @@ Canvas:
   m_GameObject: {fileID: 4542353979189824293}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -398,7 +421,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &5815371383370841256
 MonoBehaviour:
@@ -467,6 +490,7 @@ GameObject:
   - component: {fileID: 2296800648317453942}
   - component: {fileID: 3203424973292277480}
   - component: {fileID: 4777560353314928644}
+  - component: {fileID: 2685118989944116176}
   m_Layer: 5
   m_Name: RestartButton
   m_TagString: Untagged
@@ -551,7 +575,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -591,6 +615,28 @@ MonoBehaviour:
   sceneName: SampleScene
   loadToColor: {r: 0, g: 0, b: 0, a: 1}
   duration: 1
+--- !u!95 &2685118989944116176
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6576669215591626040}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6848f2bd12b05eb4db2aaf1ca6fb890b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7309787847062419136
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,7 +703,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7042847911465117151, guid: 08de8fe6f83a2a54ca8af2eae25c46a7, type: 3}
+  m_Sprite: {fileID: -5993112012373322873, guid: 9695326e6e6e7f647941b5e81859afa1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

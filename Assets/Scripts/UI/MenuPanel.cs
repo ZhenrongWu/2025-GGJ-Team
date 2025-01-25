@@ -30,12 +30,12 @@ namespace UI
 
         private void ShowPopup()
         {
-            panel.DOScale(Vector3.one, duration);
+            panel.DOScale(Vector3.one, duration).SetLink(gameObject);
         }
 
         private void HidePopup()
         {
-            panel.DOScale(Vector3.zero, duration);
+            panel.DOScale(Vector3.zero, duration).SetLink(gameObject);
         }
     }
 }
