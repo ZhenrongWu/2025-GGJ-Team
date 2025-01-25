@@ -12,7 +12,7 @@ namespace Core
         [SerializeField] private float inputCooldown = .2f;
 
         [Space(10)] [Range(0, 5)] [SerializeField]
-        private int extraBubbleCount;
+        private int bubbleCount;
 
         [SerializeField] private GameObject bubble;
 
@@ -24,12 +24,6 @@ namespace Core
         private float   _spriteHeight;
         private Vector2 _screenBounds;
         private float   _nextInputTime;
-
-        public int ExtraBubbleCount
-        {
-            get => extraBubbleCount;
-            set => extraBubbleCount = value;
-        }
 
         private void Start()
         {
@@ -48,7 +42,7 @@ namespace Core
 
         private void CreateBubbles()
         {
-            for (var i = 1; i <= extraBubbleCount; i++)
+            for (var i = 0; i < bubbleCount; i++)
             {
                 var position = new Vector2(transform.position.x + _spriteWidth * i, transform.position.y);
                 Instantiate(bubble, position, Quaternion.identity, gameObject.transform);
@@ -86,12 +80,16 @@ namespace Core
             var localPosition = transform.localPosition;
             var direction     = Vector2.zero;
 
-            if (localPosition.x + _spriteWidth / 2 + _spriteWidth * extraBubbleCount > _screenBounds.x)
+            if (localPosition.x + _spriteWidth / 2 + _spriteWidth * (bubbleCount - 1) > _screenBounds.x)
                 direction = Vector2.left;
+
             if (localPosition.x - _spriteWidth / 2 < -_screenBounds.x)
                 direction = Vector2.right;
-            if (localPosition.y + _spriteHeight / 2 > _screenBounds.y) direction  = Vector2.down;
-            if (localPosition.y - _spriteHeight / 2 < -_screenBounds.y) direction = Vector2.up;
+
+            if (localPosition.y + _spriteHeight / 2 > _screenBounds.y)
+                direction = Vector2.down;
+            if (localPosition.y - _spriteHeight / 2 < -_screenBounds.y)
+                direction = Vector2.up;
 
             if (direction == Vector2.zero) return;
 

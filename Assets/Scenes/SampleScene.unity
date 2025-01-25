@@ -352,13 +352,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: BubbleController
       objectReference: {fileID: 0}
-    - target: {fileID: 4331604166944210286, guid: db761dfbcf1261148b237b5e7c185fd2, type: 3}
-      propertyPath: m_Size.x
-      value: 1.235
+    - target: {fileID: 1957229395251706192, guid: db761dfbcf1261148b237b5e7c185fd2, type: 3}
+      propertyPath: bubbleCount
+      value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 4331604166944210286, guid: db761dfbcf1261148b237b5e7c185fd2, type: 3}
-      propertyPath: m_Size.y
-      value: 1.222256
+    - target: {fileID: 1957229395251706192, guid: db761dfbcf1261148b237b5e7c185fd2, type: 3}
+      propertyPath: extraBubbleCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4958861993370739439, guid: db761dfbcf1261148b237b5e7c185fd2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6824682720922496129, guid: db761dfbcf1261148b237b5e7c185fd2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -401,7 +405,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4546710482111508250, guid: db761dfbcf1261148b237b5e7c185fd2, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db761dfbcf1261148b237b5e7c185fd2, type: 3}
