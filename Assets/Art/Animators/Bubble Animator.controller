@@ -20,9 +20,9 @@ AnimatorStateMachine:
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: 470, y: 310, z: 0}
+  m_AnyStatePosition: {x: 240, y: 230, z: 0}
   m_EntryPosition: {x: 240, y: 120, z: 0}
-  m_ExitPosition: {x: 720, y: 230, z: 0}
+  m_ExitPosition: {x: 240, y: 330, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 2149138478660915265}
 --- !u!1102 &-600509503372531379
@@ -32,7 +32,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: bubble pop
+  m_Name: Bubble_Cracked
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -86,7 +86,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: bubble normal
+  m_Name: Bubble_Normal
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:

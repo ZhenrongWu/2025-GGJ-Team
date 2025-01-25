@@ -88,7 +88,7 @@ SpriteRenderer:
   m_Size: {x: 1.235, y: 1.222256}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &5886273386606420006
@@ -128,7 +128,7 @@ Animator:
   m_GameObject: {fileID: 955469536106311791}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ffab40289ef494548b54230ba038975f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 16768214e67cb8e43a802c02f52aa4e3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -159,10 +159,9 @@ MonoBehaviour:
   maxDistance: 10
   inputCooldown: 0.2
   bubbleCount: 1
-  BubbleLifeTime: 5
-  Counter: 0
-  bubble: {fileID: 5050878951365728038, guid: 37a9822db7877f348bacf0e32b3f15ea, type: 3}
-  Pointer: {fileID: 2860578490991015691, guid: b0a7e01f4e109864e9e0f44710251e01, type: 3}
+  bubbleLifeTime: 0
+  counter: 0
+  bubble: {fileID: 240284958328512785, guid: dcd71fe1b91d3fd4cadfe9f3be6eb2a6, type: 3}
 --- !u!114 &5202436485926214716
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 867f9b359d6df944a8a7f6170a534fdd
+guid: 0af8ddc872fb242458855b8d5fa927b7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2279679434788576041
-    second: foam_0
+      213: -7038265250452378062
+    second: foam2_0
+  - first:
+      213: 3240243026938009751
+    second: foam2_1
+  - first:
+      213: -5748771496016297333
+    second: foam2_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +119,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: foam_0
+      name: foam2_0
       rect:
         serializedVersion: 2
-        x: 19
+        x: 0
         y: 0
-        width: 359
-        height: 120
+        width: 356
+        height: 155
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +134,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 92b16502e5c03af10800000000000000
-      internalID: 2279679434788576041
+      spriteID: 23e6fc78b0f035e90800000000000000
+      internalID: -7038265250452378062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foam2_1
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 154
+        width: 33
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 798939e8dd7a7fc20800000000000000
+      internalID: 3240243026938009751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foam2_2
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 120
+        width: 43
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b82ce0d58c24830b0800000000000000
+      internalID: -5748771496016297333
       vertices: []
       indices: 
       edges: []
@@ -148,7 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      foam_0: 2279679434788576041
+      foam2_0: -7038265250452378062
+      foam2_1: 3240243026938009751
+      foam2_2: -5748771496016297333
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
