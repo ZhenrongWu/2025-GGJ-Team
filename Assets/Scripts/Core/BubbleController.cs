@@ -44,25 +44,15 @@ namespace Core
 
         }
 
-        private void CreateBubbles()
-        {
-            for (var i = 0; i < bubbleCount; i++)
-            {
-                var position = new Vector2(transform.position.x + _spriteWidth * i, transform.position.y);
-                Instantiate(bubble, position, Quaternion.identity, gameObject.transform);
-            }
-        }
-
         private void Update()
         {
             Counter += Time.deltaTime;
             if(Counter >= BubbleLifeTime){
                 bubbleCount--;
-                if(bubbleCount >= 1){
+                if(bubbleCount > 0){
                     transform.GetChild(0).GetComponent<BubbleStateController>().DestoryBubble();
                 }
                 else{
-
                 }
                 Counter = 0;
             }
