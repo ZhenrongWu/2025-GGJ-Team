@@ -11,7 +11,7 @@ namespace Core
         [SerializeField] private float maxDistance   = 10;
         [SerializeField] private float inputCooldown = .2f;
 
-        [Space(10)] [Range(0, 5)] [SerializeField]
+        [Space(10)] [Range(1, 5)] [SerializeField]
         private int bubbleCount;
 
         [SerializeField] private GameObject bubble;
