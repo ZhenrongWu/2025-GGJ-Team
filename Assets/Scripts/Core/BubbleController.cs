@@ -5,20 +5,20 @@ namespace Core
 {
     public class BubbleController : MonoBehaviour
     {
-        [Header("Control Settings")] 
-        [SerializeField] private float maxSpeed      = 10;
+        [Header("Control Settings")] [SerializeField]
+        private float maxSpeed = 10;
+
         [SerializeField] private float maxForce      = 50;
         [SerializeField] private float boundForce    = 10;
         [SerializeField] private float minDistance   = 1;
         [SerializeField] private float maxDistance   = 10;
         [SerializeField] private float inputCooldown = .2f;
-        [Header("Bubble Settings")]
 
-        [Space(10)] [Range(0, 5)] [SerializeField]
+        [Header("Bubble Settings")] [Space(10)] [Range(0, 5)] [SerializeField]
         public int bubbleCount;
-        public float BubbleLifeTime;
-        [SerializeField]
-        public float Counter;
+
+        public                   float      BubbleLifeTime;
+        [SerializeField] public  float      Counter;
         [SerializeField] private GameObject bubble;
 
         private Rigidbody2D    _rigidbody2D;
@@ -41,26 +41,25 @@ namespace Core
 
             if (_mainCamera != null)
                 _screenBounds = _mainCamera.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
-
         }
 
         private void Update()
         {
             Counter += Time.deltaTime;
-            if(Counter >= BubbleLifeTime){
-                bubbleCount--;
-                if(bubbleCount > 0){
+            if (Counter >= BubbleLifeTime)
+            {
+                if (bubbleCount > 0)
+                {
+                    bubbleCount--;
                     transform.GetChild(0).GetComponent<BubbleStateController>().DestoryBubble();
                 }
-                else{
-                }
+
                 Counter = 0;
             }
+
             HandlePlayerInput();
             UpdatePositionToMidPoint();
-            if(transform.childCount == 0){
-                gameObject.SetActive(false);
-            }
+            if (transform.childCount == 0) gameObject.SetActive(false);
         }
 
         private void HandlePlayerInput()
@@ -81,8 +80,6 @@ namespace Core
 
             if (_rigidbody2D.linearVelocity.magnitude < maxSpeed)
                 _rigidbody2D.AddForce(finalForce);
-
-
         }
 
         private void CheckAndBounceAtBounds()
@@ -106,17 +103,19 @@ namespace Core
             _rigidbody2D.linearVelocity = Vector2.zero;
             _rigidbody2D.AddForce(direction * boundForce);
         }
-        private void UpdatePositionToMidPoint(){
-            int count = transform.childCount;
-            if(count == 0){
+
+        private void UpdatePositionToMidPoint()
+        {
+            var count = transform.childCount;
+            if (count == 0)
+            {
                 Destroy(gameObject);
             }
-            else{
-                Vector3 midPoint = (transform.GetChild(0).position + transform.GetChild(count-1).position) / 2 ;
-                Vector3 Dir = transform.position - midPoint;
-                for(int i = 0; i < count; i++){
-                    transform.GetChild(i).position += Dir * Time.deltaTime;
-                }
+            else
+            {
+                var midPoint = (transform.GetChild(0).position + transform.GetChild(count - 1).position) / 2;
+                var Dir = transform.position - midPoint;
+                for (var i = 0; i < count; i++) transform.GetChild(i).position += Dir * Time.deltaTime;
             }
         }
     }
