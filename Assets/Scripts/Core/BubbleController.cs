@@ -4,17 +4,23 @@ namespace Core
 {
     public class BubbleController : MonoBehaviour
     {
+        [Header("Control Settings")] 
         [SerializeField] private float maxSpeed      = 10;
         [SerializeField] private float maxForce      = 50;
         [SerializeField] private float boundForce    = 10;
         [SerializeField] private float minDistance   = 1;
         [SerializeField] private float maxDistance   = 10;
         [SerializeField] private float inputCooldown = .2f;
+        [Header("Bubble Settings")]
 
         [Space(10)] [Range(1, 5)] [SerializeField]
         public int bubbleCount;
-
+        public float BubbleLifeTime;
+        [SerializeField]
+        private float Counter;
         [SerializeField] private GameObject bubble;
+        [SerializeField] private GameObject Pointer;
+        ArrowBehavior PointerArrowBehavior;
 
         private Rigidbody2D    _rigidbody2D;
         private SpriteRenderer _spriteRenderer;
@@ -36,7 +42,10 @@ namespace Core
 
             if (_mainCamera != null)
                 _screenBounds = _mainCamera.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
-
+            if(Pointer != null){
+                PointerArrowBehavior = Pointer.GetComponent<ArrowBehavior>();
+                PointerArrowBehavior.BubbleLifeTime = BubbleLifeTime;
+            }
         }
 
         private void CreateBubbles()
@@ -50,12 +59,16 @@ namespace Core
 
         private void Update()
         {
+            Counter += Time.deltaTime;
+            if(Counter >= BubbleLifeTime){
+                transform.GetChild(0).GetComponent<BubbleStateController>().DestoryBubble();
+                Counter = 0;
+            }
             HandlePlayerInput();
             UpdatePositionToMidPoint();
             if(transform.childCount == 0){
                 gameObject.SetActive(false);
             }
-            //CheckAndBounceAtBounds();
         }
 
         private void HandlePlayerInput()

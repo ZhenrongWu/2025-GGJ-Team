@@ -11,12 +11,14 @@ public class AddBubble : MonoBehaviour
     public GameObject BubblePrefab;
     float Counter;
     public GameObject Character;
-    
+
+    public bool IsFinish;
     GameObject CurrBubble;
     [SerializeField]
     int Index;
     void Start()
     {
+        IsFinish = false;
         gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         Index = 0;
         CurrBubble = AddOneBubble(Words, Index);
@@ -41,10 +43,11 @@ public class AddBubble : MonoBehaviour
         if(Index >= Words.Length || CurrBubble == null){
             //CurrBubble = null;
             gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
-            
+
             if(Character != null){
                 Character.GetComponent<Animator>().SetTrigger("AddFinish");
             }
+            IsFinish = true;
             this.enabled = false;
         }
     }
@@ -58,7 +61,7 @@ public class AddBubble : MonoBehaviour
         if(index == 0){
             position = new Vector3(transform.position.x + SpriteWidth * index, transform.position.y,transform.position.z);
         } else{
-            position = new Vector3(CurrBubble.transform.position.x + SpriteWidth, transform.position.y,transform.position.z);
+            position = new Vector3(CurrBubble.transform.position.x - SpriteWidth, transform.position.y,transform.position.z);
         }
         GameObject bubble = Instantiate(BubblePrefab, position, transform.rotation, gameObject.transform);
         TextMeshPro _textMesh = bubble.transform.GetChild(0).GetComponentInChildren<TextMeshPro>();

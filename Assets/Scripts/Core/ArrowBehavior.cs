@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class ArrowBehavior : MonoBehaviour
 {
-    public GameObject Bubbles;
+    public GameObject Target;
     public float BubbleLifeTime;
-    public float LeftTime;
+    public float Counter;
     public Vector3 Pos;
     [SerializeField]
     private AudioClip ClickSound;
@@ -17,23 +17,14 @@ public class ArrowBehavior : MonoBehaviour
 
     void Start()
     {
-        LeftTime = BubbleLifeTime;
-        if(Bubbles == null){
-            Bubbles = GameObject.Find("BubbleController");
-        }
-        if(Sprite == null){
-            Sprite = GetComponent<SpriteRenderer>();
-        }
-        if(Audio == null){
-            Audio = GetComponent<AudioSource>();
-        }
+        
     }
     void Update()
     {
         
     }
 
-    void Flash(float time){
+    /*void Flash(float time){
         if(time > (BubbleLifeTime*2)/3){
             //normal point
             float FlashSpeed = 8;
@@ -52,7 +43,7 @@ public class ArrowBehavior : MonoBehaviour
         else if(time > BubbleLifeTime/3){
             //faster point
             float FlashSpeed = 16;
-            if(Mathf.Sin(LeftTime*FlashSpeed)>0){
+            if(Mathf.Sin(counter*FlashSpeed)>0){
                 Sprite.enabled = true;
                 if(!IsPlaying){
                     Audio.PlayOneShot(ClickSound);
@@ -80,5 +71,5 @@ public class ArrowBehavior : MonoBehaviour
                 IsPlaying = false;
             }
         }
-    }
+    }*/
 }

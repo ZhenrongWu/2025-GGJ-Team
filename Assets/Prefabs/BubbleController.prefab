@@ -159,7 +159,10 @@ MonoBehaviour:
   maxDistance: 10
   inputCooldown: 0.2
   bubbleCount: 1
+  BubbleLifeTime: 5
+  Counter: 0
   bubble: {fileID: 5050878951365728038, guid: 37a9822db7877f348bacf0e32b3f15ea, type: 3}
+  Pointer: {fileID: 2860578490991015691, guid: b0a7e01f4e109864e9e0f44710251e01, type: 3}
 --- !u!114 &5202436485926214716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,4 +180,5 @@ MonoBehaviour:
   SpriteWidth: 1
   BubblePrefab: {fileID: 240284958328512785, guid: dcd71fe1b91d3fd4cadfe9f3be6eb2a6, type: 3}
   Character: {fileID: 0}
+  IsFinish: 0
   Index: 0
