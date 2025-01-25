@@ -911,11 +911,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2103345458}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8a098f73e8afef488c6879fc52e74d9, type: 3}
+  m_Script: {fileID: 11500000, guid: b69a95bbc9744b17a7ba95e8cc8466f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: SampleScene
   loadToColor: {r: 0, g: 0, b: 0, a: 1}
+  duration: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
