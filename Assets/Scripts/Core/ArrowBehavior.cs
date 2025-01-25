@@ -25,7 +25,7 @@ public class ArrowBehavior : MonoBehaviour
     }
     void Update()
     {
-        //Counter+=Time.deltaTime;
+        Counter = _BubbleController.Counter;
         if(_BubbleController.bubbleCount>0){
             Target = Bubbles.transform.GetChild(0);
         }
@@ -38,6 +38,7 @@ public class ArrowBehavior : MonoBehaviour
         else{
             transform.position = Vector3.Lerp(transform.position, Target.position + Pos, 0.1f);
         }
+        transform.position = Vector3.Lerp(transform.position, Target.position + Pos, 0.1f);
         Flash();
     }
 

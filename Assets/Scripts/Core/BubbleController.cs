@@ -18,7 +18,7 @@ namespace Core
         public int bubbleCount;
         public float BubbleLifeTime;
         [SerializeField]
-        private float Counter;
+        public float Counter;
         [SerializeField] private GameObject bubble;
 
         private Rigidbody2D    _rigidbody2D;
