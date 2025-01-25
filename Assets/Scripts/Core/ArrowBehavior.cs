@@ -25,7 +25,7 @@ public class ArrowBehavior : MonoBehaviour
 
     private void Update()
     {
-        Counter = _BubbleController.Counter;
+        Counter = _BubbleController.counter;
         if (_BubbleController.bubbleCount > 0)
             Target = Bubbles.transform.GetChild(0);
         else if (Bubbles != null)
