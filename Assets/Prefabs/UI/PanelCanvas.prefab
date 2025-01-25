@@ -212,8 +212,8 @@ GameObject:
   - component: {fileID: 5080094636960324447}
   - component: {fileID: 9169773208922273339}
   - component: {fileID: 2489255679690261047}
-  - component: {fileID: 8408308053154431122}
   - component: {fileID: 2434212413287098595}
+  - component: {fileID: 8762204579543353604}
   m_Layer: 5
   m_Name: ResumeButton
   m_TagString: Untagged
@@ -323,21 +323,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &8408308053154431122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3682433188222850091}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b69a95bbc9744b17a7ba95e8cc8466f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneName: MainMenu
-  loadToColor: {r: 0, g: 0, b: 0, a: 1}
-  duration: 1
 --- !u!95 &2434212413287098595
 Animator:
   serializedVersion: 7
@@ -360,6 +345,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8762204579543353604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3682433188222850091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 863c8fcb68d94d2e9ecb8e89e44f3d5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: MainMenu
+  duration: 1
 --- !u!1 &4542353979189824293
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,8 +488,8 @@ GameObject:
   - component: {fileID: 503302518034341675}
   - component: {fileID: 2296800648317453942}
   - component: {fileID: 3203424973292277480}
-  - component: {fileID: 4777560353314928644}
   - component: {fileID: 2685118989944116176}
+  - component: {fileID: 2569032182826129423}
   m_Layer: 5
   m_Name: RestartButton
   m_TagString: Untagged
@@ -600,21 +599,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &4777560353314928644
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6576669215591626040}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b69a95bbc9744b17a7ba95e8cc8466f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneName: SampleScene
-  loadToColor: {r: 0, g: 0, b: 0, a: 1}
-  duration: 1
 --- !u!95 &2685118989944116176
 Animator:
   serializedVersion: 7
@@ -637,6 +621,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2569032182826129423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6576669215591626040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a657e89b3068437a99af1d4b04d25071, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 1
 --- !u!1 &7309787847062419136
 GameObject:
   m_ObjectHideFlags: 0
