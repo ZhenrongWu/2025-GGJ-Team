@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -21,6 +23,7 @@ namespace Core
         private float _timer;
         private int   _currentCount;
         private int   _currentIndex;
+        public  int   CurrentCount => _currentCount;
 
         private void Start()
         {
