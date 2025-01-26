@@ -1,100 +1,101 @@
-using Unity.Mathematics;
 using UnityEngine;
-using Core;
 
-public class ArrowBehavior : MonoBehaviour
+namespace Core
 {
-    public                   GameObject     Bubbles;
-    public                   Transform      Target;
-    [HideInInspector] public float          BubbleLifeTime;
-    public                   float          Counter;
-    public                   Vector3        Pos;
-    [SerializeField] private AudioClip      ClickSound;
-    [SerializeField] private AudioSource    Audio;
-    [SerializeField] private SpriteRenderer Sprite;
-
-    private bool             IsPlaying = false;
-    private BubbleController _BubbleController;
-
-    private void Start()
+    public class ArrowBehavior : MonoBehaviour
     {
-        _BubbleController = Bubbles.GetComponent<BubbleController>();
-        Counter           = 0;
-        Audio             = GetComponent<AudioSource>();
-    }
+        public                   GameObject     Bubbles;
+        public                   Transform      Target;
+        [HideInInspector] public float          BubbleLifeTime;
+        public                   float          Counter;
+        public                   Vector3        Pos;
+        [SerializeField] private AudioClip      ClickSound;
+        [SerializeField] private AudioSource    Audio;
+        [SerializeField] private SpriteRenderer Sprite;
 
-    private void Update()
-    {
-        Counter = _BubbleController.counter;
-        if (_BubbleController.bubbleCount > 0)
-            Target = Bubbles.transform.GetChild(0);
-        else if (Bubbles != null)
-            Target = Bubbles.transform;
-        else if (Target == null)
-            gameObject.SetActive(false);
-        else
-            transform.position = Vector3.Lerp(transform.position, Target.position + Pos, 0.1f);
+        private bool        IsPlaying = false;
+        private BubbleTimer _bubbleTimer;
 
-        Flash();
-    }
-
-    private void Flash()
-    {
-        if (Counter < BubbleLifeTime / 3)
+        private void Start()
         {
-            //normal point
-            float FlashSpeed = 8;
-            if (Mathf.Sin(Counter * FlashSpeed) > 0)
-            {
-                Sprite.enabled = true;
-                if (!IsPlaying)
-                {
-                    Audio.PlayOneShot(ClickSound);
-                    IsPlaying = true;
-                }
-            }
-            else
-            {
-                Sprite.enabled = false;
-                IsPlaying      = false;
-            }
+            _bubbleTimer = Bubbles.GetComponent<BubbleTimer>();
+            Counter      = 0;
+            Audio        = GetComponent<AudioSource>();
         }
-        else if (Counter < BubbleLifeTime * 2 / 3)
+
+        private void Update()
         {
-            //faster point
-            float FlashSpeed = 16;
-            if (Mathf.Sin(Counter * FlashSpeed) > 0)
-            {
-                Sprite.enabled = true;
-                if (!IsPlaying)
-                {
-                    Audio.PlayOneShot(ClickSound);
-                    IsPlaying = true;
-                }
-            }
+            Counter = _bubbleTimer.Counter;
+            if (_bubbleTimer.BubbleCount > 0)
+                Target = Bubbles.transform.GetChild(0);
+            else if (Bubbles != null)
+                Target = Bubbles.transform;
+            else if (Target == null)
+                gameObject.SetActive(false);
             else
-            {
-                Sprite.enabled = false;
-                IsPlaying      = false;
-            }
+                transform.position = Vector3.Lerp(transform.position, Target.position + Pos, 0.1f);
+
+            Flash();
         }
-        else if (Counter < BubbleLifeTime)
+
+        private void Flash()
         {
-            //urgent point
-            float FlashSpeed = 30;
-            if (Mathf.Sin(Counter * FlashSpeed) > 0)
+            if (Counter < BubbleLifeTime / 3)
             {
-                Sprite.enabled = true;
-                if (!IsPlaying)
+                //normal point
+                float FlashSpeed = 8;
+                if (Mathf.Sin(Counter * FlashSpeed) > 0)
                 {
-                    Audio.PlayOneShot(ClickSound);
-                    IsPlaying = true;
+                    Sprite.enabled = true;
+                    if (!IsPlaying)
+                    {
+                        Audio.PlayOneShot(ClickSound);
+                        IsPlaying = true;
+                    }
+                }
+                else
+                {
+                    Sprite.enabled = false;
+                    IsPlaying      = false;
                 }
             }
-            else
+            else if (Counter < BubbleLifeTime * 2 / 3)
             {
-                Sprite.enabled = false;
-                IsPlaying      = false;
+                //faster point
+                float FlashSpeed = 16;
+                if (Mathf.Sin(Counter * FlashSpeed) > 0)
+                {
+                    Sprite.enabled = true;
+                    if (!IsPlaying)
+                    {
+                        Audio.PlayOneShot(ClickSound);
+                        IsPlaying = true;
+                    }
+                }
+                else
+                {
+                    Sprite.enabled = false;
+                    IsPlaying      = false;
+                }
+            }
+            else if (Counter < BubbleLifeTime)
+            {
+                //urgent point
+                float FlashSpeed = 30;
+                if (Mathf.Sin(Counter * FlashSpeed) > 0)
+                {
+                    Sprite.enabled = true;
+                    if (!IsPlaying)
+                    {
+                        Audio.PlayOneShot(ClickSound);
+                        IsPlaying = true;
+                    }
+                }
+                else
+                {
+                    Sprite.enabled = false;
+                    IsPlaying      = false;
+                }
             }
         }
     }
