@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 602864421508392279}
   - component: {fileID: 1957229395251706192}
   - component: {fileID: 1026752252014674898}
+  - component: {fileID: -5390257264508219398}
   m_Layer: 0
   m_Name: BubbleController
   m_TagString: Untagged
@@ -176,3 +177,18 @@ MonoBehaviour:
   character: {fileID: 0}
   isFinish: 0
   index: 0
+--- !u!114 &-5390257264508219398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955469536106311791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d77ec52455247289072b400bf5604de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  count: 1
+  lifeTime: 5
+  prefab: {fileID: 240284958328512785, guid: dcd71fe1b91d3fd4cadfe9f3be6eb2a6, type: 3}
