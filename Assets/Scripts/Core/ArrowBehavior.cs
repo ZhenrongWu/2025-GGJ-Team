@@ -25,15 +25,15 @@ namespace Core
 
         private void Update()
         {
-            Counter = _bubbleTimer.Counter;
-            if (_bubbleTimer.BubbleCount > 0)
-                Target = Bubbles.transform.GetChild(0);
-            else if (Bubbles != null)
-                Target = Bubbles.transform;
-            else if (Target == null)
-                gameObject.SetActive(false);
-            else
-                transform.position = Vector3.Lerp(transform.position, Target.position + Pos, 0.1f);
+            // Counter = _bubbleTimer.Timer;
+            // if (_bubbleTimer.BubbleCount > 0)
+            //     Target = Bubbles.transform.GetChild(0);
+            // else if (Bubbles != null)
+            //     Target = Bubbles.transform;
+            // else if (Target == null)
+            //     gameObject.SetActive(false);
+            // else
+            //     transform.position = Vector3.Lerp(transform.position, Target.position + Pos, 0.1f);
 
             Flash();
         }
