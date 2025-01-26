@@ -1429,6 +1429,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2028182172}
   - component: {fileID: 2028182173}
+  - component: {fileID: 2028182174}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -1506,6 +1507,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2028182174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028182171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8d5b180882595e408dd9485f425798d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Backgrounds:
+  - {fileID: 21300000, guid: 57ecc65c857a80d41924aa104a6d61a3, type: 3}
+  - {fileID: 6945534332114025999, guid: 7fda6157f331f704a864116bc6e4cf08, type: 3}
+  - {fileID: -575548012780592838, guid: 7e10f22014a3cde4a86dab2a10eff3a6, type: 3}
+  - {fileID: -7445598161940061149, guid: 252c876c7faf2264fb4efcd3b6b46f9a, type: 3}
+  - {fileID: 4294790030975690732, guid: 62448341cfc10cc44b68f2480b1c5d38, type: 3}
+  - {fileID: 6357088275004585518, guid: aed89253394c8374bafd0dc650a2062c, type: 3}
+  BackgroundRenderer: {fileID: 2028182173}
 --- !u!212 &2186827055724065019
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1610,7 +1631,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1026752252014674898, guid: db761dfbcf1261148b237b5e7c185fd2, type: 3}
       propertyPath: words
-      value: Hole
+      value: Hi
       objectReference: {fileID: 0}
     - target: {fileID: 1026752252014674898, guid: db761dfbcf1261148b237b5e7c185fd2, type: 3}
       propertyPath: spacing
