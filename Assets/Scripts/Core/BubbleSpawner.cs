@@ -7,31 +7,28 @@ namespace Core
 {
     public class BubbleSpawner : MonoBehaviour
     {
-        [SerializeField] private string     words    = "Hello";
-        [SerializeField] private float      interval = 1;
-        [SerializeField] private float      offsetX;
+        [SerializeField] private string     words           = "Hello";
+        [SerializeField] private float      destroyInterval = 1;
+        [SerializeField] private float      spawnInterval   = 1;
+        [SerializeField] private float      offsetX         = 1;
         [SerializeField] private GameObject bubblePrefab;
         [SerializeField] private GameObject character;
         [SerializeField] private Transform  bubbleSpawnPoint;
 
-        private Rigidbody2D    _rigidbody2D;
-        private Animator       _characterAnimator;
-        private SpriteRenderer _bubbleSpriteRenderer;
+        private Rigidbody2D _rigidbody2D;
+        private Animator    _characterAnimator;
 
         private float _timer;
         private int   _currentCount;
         private int   _currentIndex;
-        private float _bubbleSpriteWidth;
 
         private void Start()
         {
-            _characterAnimator    = character.GetComponent<Animator>();
-            _bubbleSpriteRenderer = bubblePrefab.GetComponent<SpriteRenderer>();
-            _rigidbody2D          = GetComponent<Rigidbody2D>();
+            _characterAnimator = character.GetComponent<Animator>();
+            _rigidbody2D       = GetComponent<Rigidbody2D>();
 
             _rigidbody2D.constraints = RigidbodyConstraints2D.FreezeAll;
             _currentCount            = words.Length;
-            _bubbleSpriteWidth       = _bubbleSpriteRenderer.bounds.size.x;
 
             AddABubble(_currentIndex);
         }
@@ -56,7 +53,7 @@ namespace Core
             foreach (var bubbleState in GetComponentsInChildren<BubbleState>())
             {
                 bubbleState.IsActive = true;
-                yield return new WaitForSeconds(interval);
+                yield return new WaitForSeconds(destroyInterval);
             }
         }
 
@@ -64,7 +61,7 @@ namespace Core
         {
             _timer += Time.deltaTime;
 
-            if (_timer >= interval)
+            if (_timer >= spawnInterval)
             {
                 _timer = 0;
 
@@ -77,15 +74,14 @@ namespace Core
 
         private void AddABubble(int index)
         {
-            var position = new Vector2(bubbleSpawnPoint.transform.position.x + (_bubbleSpriteWidth + offsetX) * index,
-                                       transform.position.y);
-            var clone = Instantiate(bubblePrefab, position, transform.rotation, gameObject.transform);
+            var position = new Vector2(bubbleSpawnPoint.transform.position.x + offsetX * index, transform.position.y);
+            var clone    = Instantiate(bubblePrefab, position, transform.rotation, gameObject.transform);
             clone.transform.localScale = Vector2.zero;
 
             var textMeshPro = clone.transform.GetChild(0).GetComponentInChildren<TextMeshPro>();
             textMeshPro.text = words[index].ToString();
 
-            clone.transform.DOScale(Vector2.one, interval).SetEase(Ease.InOutBounce).SetLink(gameObject);
+            clone.transform.DOScale(Vector2.one, 1).SetEase(Ease.InOutBounce).SetLink(gameObject);
         }
 
         public void ReduceBubbleCount()
