@@ -171,7 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   words: Hello
   interval: 1
-  offsetX: 0
+  offsetX: 1.8
   bubblePrefab: {fileID: 240284958328512785, guid: dcd71fe1b91d3fd4cadfe9f3be6eb2a6, type: 3}
   character: {fileID: 0}
   bubbleSpawnPoint: {fileID: 0}
