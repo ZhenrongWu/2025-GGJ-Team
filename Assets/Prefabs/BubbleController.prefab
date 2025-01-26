@@ -170,9 +170,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   words: Hello
-  animationTime: 1
-  spriteWidth: -1.2
+  interval: 1
+  offsetX: 0
   bubblePrefab: {fileID: 240284958328512785, guid: dcd71fe1b91d3fd4cadfe9f3be6eb2a6, type: 3}
   character: {fileID: 0}
-  isFinish: 0
-  index: 0
+  bubbleSpawnPoint: {fileID: 0}

@@ -1,3 +1,4 @@
+using System.Collections;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -8,25 +9,29 @@ namespace Core
     {
         [SerializeField] private string     words    = "Hello";
         [SerializeField] private float      interval = 1;
-        [SerializeField] private float      spacing  = .5f;
+        [SerializeField] private float      offsetX;
         [SerializeField] private GameObject bubblePrefab;
         [SerializeField] private GameObject character;
         [SerializeField] private Transform  bubbleSpawnPoint;
 
-        private Rigidbody2D _rigidbody2D;
-        private Animator    _characterAnimator;
+        private Rigidbody2D    _rigidbody2D;
+        private Animator       _characterAnimator;
+        private SpriteRenderer _bubbleSpriteRenderer;
 
         private float _timer;
         private int   _currentCount;
         private int   _currentIndex;
+        private float _bubbleSpriteWidth;
 
         private void Start()
         {
-            _characterAnimator = character.GetComponent<Animator>();
-            _rigidbody2D       = GetComponent<Rigidbody2D>();
+            _characterAnimator    = character.GetComponent<Animator>();
+            _bubbleSpriteRenderer = bubblePrefab.GetComponent<SpriteRenderer>();
+            _rigidbody2D          = GetComponent<Rigidbody2D>();
 
             _rigidbody2D.constraints = RigidbodyConstraints2D.FreezeAll;
             _currentCount            = words.Length;
+            _bubbleSpriteWidth       = _bubbleSpriteRenderer.bounds.size.x;
 
             AddABubble(_currentIndex);
         }
@@ -37,10 +42,22 @@ namespace Core
             {
                 _rigidbody2D.constraints = RigidbodyConstraints2D.None;
                 _characterAnimator.SetTrigger($"Finish");
+
+                StartCoroutine(SequentialBubbleState());
+
                 return;
             }
 
             AddBubbleAtIntervals();
+        }
+
+        private IEnumerator SequentialBubbleState()
+        {
+            foreach (var bubbleState in GetComponentsInChildren<BubbleState>())
+            {
+                bubbleState.IsActive = true;
+                yield return new WaitForSeconds(interval);
+            }
         }
 
         private void AddBubbleAtIntervals()
@@ -60,8 +77,9 @@ namespace Core
 
         private void AddABubble(int index)
         {
-            var position = new Vector2(bubbleSpawnPoint.transform.position.x + spacing * index, transform.position.y);
-            var clone    = Instantiate(bubblePrefab, position, transform.rotation, gameObject.transform);
+            var position = new Vector2(bubbleSpawnPoint.transform.position.x + (_bubbleSpriteWidth + offsetX) * index,
+                                       transform.position.y);
+            var clone = Instantiate(bubblePrefab, position, transform.rotation, gameObject.transform);
             clone.transform.localScale = Vector2.zero;
 
             var textMeshPro = clone.transform.GetChild(0).GetComponentInChildren<TextMeshPro>();

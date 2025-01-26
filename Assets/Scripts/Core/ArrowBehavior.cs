@@ -13,14 +13,14 @@ namespace Core
         [SerializeField] private AudioSource    Audio;
         [SerializeField] private SpriteRenderer Sprite;
 
-        private bool        IsPlaying = false;
-        private BubbleTimer _bubbleTimer;
+        private bool IsPlaying = false;
+        // private BubbleTimer _bubbleTimer;
 
         private void Start()
         {
-            _bubbleTimer = Bubbles.GetComponent<BubbleTimer>();
-            Counter      = 0;
-            Audio        = GetComponent<AudioSource>();
+            // _bubbleTimer = Bubbles.GetComponent<BubbleTimer>();
+            Counter = 0;
+            Audio   = GetComponent<AudioSource>();
         }
 
         private void Update()
@@ -43,8 +43,8 @@ namespace Core
             if (Counter < BubbleLifeTime / 3)
             {
                 //normal point
-                float FlashSpeed = 8;
-                if (Mathf.Sin(Counter * FlashSpeed) > 0)
+                float flashSpeed = 8;
+                if (Mathf.Sin(Counter * flashSpeed) > 0)
                 {
                     Sprite.enabled = true;
                     if (!IsPlaying)
