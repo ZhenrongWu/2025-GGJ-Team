@@ -1,22 +1,22 @@
-using System;
 using UnityEngine;
 
 namespace Core
 {
     public class BubbleState : MonoBehaviour
     {
-        [SerializeField] private float interval = 1;
+        [SerializeField] private float     interval = 1;
+        [SerializeField] private AudioClip crackClip;
 
         private float         _timer;
         private Animator      _animator;
         private AudioSource   _audioSource;
         private BubbleSpawner _bubbleSpawner;
+        private ArrowScript   _arrow;
 
         private bool _isActive;
 
         public bool IsActive
         {
-            get => _isActive;
             set => _isActive = value;
         }
 
@@ -25,6 +25,7 @@ namespace Core
             _animator      = GetComponent<Animator>();
             _audioSource   = GetComponent<AudioSource>();
             _bubbleSpawner = transform.parent.GetComponent<BubbleSpawner>();
+            _arrow         = transform.GetChild(1).GetComponent<ArrowScript>();
         }
 
         private void Update()
@@ -33,6 +34,8 @@ namespace Core
 
             IntervalCrackBubble();
             HandleAnimationEnd("Crack");
+
+            _arrow.SetArrowEffect();
         }
 
         private void IntervalCrackBubble()
@@ -44,6 +47,7 @@ namespace Core
                 _timer = 0;
 
                 TriggerCrackEffect();
+                _arrow.DisableArrow();
             }
         }
 
@@ -59,7 +63,7 @@ namespace Core
 
         public void TriggerCrackEffect()
         {
-            _audioSource?.Play();
+            _audioSource?.PlayOneShot(crackClip);
             _animator?.SetTrigger($"Crack");
         }
     }
