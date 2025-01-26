@@ -1078,6 +1078,7 @@ Transform:
   - {fileID: 2028182172}
   - {fileID: 1732884534}
   - {fileID: 1082513112}
+  - {fileID: 1545374103}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1500675751 stripped
@@ -1090,25 +1091,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6824682720922496129, guid: db761dfbcf1261148b237b5e7c185fd2, type: 3}
   m_PrefabInstance: {fileID: 5359329710407914203}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1500675763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1500675751}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a962279b3eeb4e4eb945641403e11ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  words: Hello
-  animationTime: 1
-  spriteWidth: -1.2
-  bubblePrefab: {fileID: 240284958328512785, guid: dcd71fe1b91d3fd4cadfe9f3be6eb2a6, type: 3}
-  character: {fileID: 8497073400745508597}
-  isFinish: 0
-  index: 0
 --- !u!1 &1545374100
 GameObject:
   m_ObjectHideFlags: 0
@@ -1236,12 +1218,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1545374100}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.08, y: -3.36, z: 0}
   m_LocalScale: {x: 1.1955312, y: 6.766706, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1331770483}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1732884533
 GameObject:
@@ -1752,6 +1734,30 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Bubble
       objectReference: {fileID: 0}
+    - target: {fileID: 1026752252014674898, guid: db761dfbcf1261148b237b5e7c185fd2, type: 3}
+      propertyPath: words
+      value: Hole
+      objectReference: {fileID: 0}
+    - target: {fileID: 1026752252014674898, guid: db761dfbcf1261148b237b5e7c185fd2, type: 3}
+      propertyPath: spacing
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1026752252014674898, guid: db761dfbcf1261148b237b5e7c185fd2, type: 3}
+      propertyPath: interval
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1026752252014674898, guid: db761dfbcf1261148b237b5e7c185fd2, type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 8497073400745508597}
+    - target: {fileID: 1026752252014674898, guid: db761dfbcf1261148b237b5e7c185fd2, type: 3}
+      propertyPath: bubblePrefab
+      value: 
+      objectReference: {fileID: 240284958328512785, guid: dcd71fe1b91d3fd4cadfe9f3be6eb2a6, type: 3}
+    - target: {fileID: 1026752252014674898, guid: db761dfbcf1261148b237b5e7c185fd2, type: 3}
+      propertyPath: bubbleSpawnPoint
+      value: 
+      objectReference: {fileID: 2311428790905122748}
     - target: {fileID: 1957229395251706192, guid: db761dfbcf1261148b237b5e7c185fd2, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -1860,10 +1866,7 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 4546710482111508250, guid: db761dfbcf1261148b237b5e7c185fd2, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 955469536106311791, guid: db761dfbcf1261148b237b5e7c185fd2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1500675763}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db761dfbcf1261148b237b5e7c185fd2, type: 3}
 --- !u!114 &6111509655632714716
 MonoBehaviour:
@@ -1952,7 +1955,7 @@ GameObject:
   m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -2009,5 +2012,4 @@ SceneRoots:
   - {fileID: 1331770483}
   - {fileID: 4697758182660448454}
   - {fileID: 522857634}
-  - {fileID: 1545374103}
   - {fileID: 5359329710407914203}
