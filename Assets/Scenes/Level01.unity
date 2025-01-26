@@ -1566,14 +1566,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8d5b180882595e408dd9485f425798d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Backgrounds:
+  backgroundImages:
   - {fileID: 21300000, guid: 57ecc65c857a80d41924aa104a6d61a3, type: 3}
   - {fileID: 6945534332114025999, guid: 7fda6157f331f704a864116bc6e4cf08, type: 3}
   - {fileID: -575548012780592838, guid: 7e10f22014a3cde4a86dab2a10eff3a6, type: 3}
   - {fileID: -7445598161940061149, guid: 252c876c7faf2264fb4efcd3b6b46f9a, type: 3}
   - {fileID: 4294790030975690732, guid: 62448341cfc10cc44b68f2480b1c5d38, type: 3}
   - {fileID: 6357088275004585518, guid: aed89253394c8374bafd0dc650a2062c, type: 3}
-  BackgroundRenderer: {fileID: 2028182173}
 --- !u!212 &2186827055724065019
 SpriteRenderer:
   m_ObjectHideFlags: 0
