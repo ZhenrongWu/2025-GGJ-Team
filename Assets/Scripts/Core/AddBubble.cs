@@ -16,8 +16,11 @@ public class AddBubble : MonoBehaviour
     GameObject CurrBubble;
     [SerializeField]
     int Index;
+    [SerializeField]
+    BubbleLife M_BubbleLife;
     void Start()
     {
+        M_BubbleLife.enabled = false;
         IsFinish = false;
         gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         Index = 0;
@@ -31,11 +34,7 @@ public class AddBubble : MonoBehaviour
 
     void Update(){
         Counter += Time.deltaTime;
-        if(CurrBubble!=null){
-            //CurrBubble.transform.localScale = Vector3.one * Counter / AnimationTime;
-        }
         if(Counter >= AnimationTime && Index < Words.Length){
-            //CurrBubble.transform.localScale = Vector3.one;
             Counter = 0;
             Index++;
             CurrBubble = AddOneBubble(Words, Index);
@@ -48,6 +47,7 @@ public class AddBubble : MonoBehaviour
                 Character.GetComponent<Animator>().SetTrigger("AddFinish");
             }
             IsFinish = true;
+            M_BubbleLife.enabled = true;
             this.enabled = false;
         }
     }

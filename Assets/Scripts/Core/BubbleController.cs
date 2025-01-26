@@ -16,11 +16,6 @@ namespace Core
 
         [Space(10)] [Range(0, 5)] [SerializeField]
         public int bubbleCount;
-        public float BubbleLifeTime;
-        [SerializeField]
-        public float Counter;
-        [SerializeField] private GameObject bubble;
-
         private Rigidbody2D    _rigidbody2D;
         private SpriteRenderer _spriteRenderer;
         private Camera         _mainCamera;
@@ -46,16 +41,14 @@ namespace Core
 
         private void Update()
         {
-            Counter += Time.deltaTime;
+            /*Counter += Time.deltaTime;
             if(Counter >= BubbleLifeTime){
-                bubbleCount--;
                 if(bubbleCount > 0){
                     transform.GetChild(0).GetComponent<BubbleStateController>().DestoryBubble();
-                }
-                else{
+                    bubbleCount--;
                 }
                 Counter = 0;
-            }
+            }*/
             HandlePlayerInput();
             UpdatePositionToMidPoint();
             if(transform.childCount == 0){
@@ -81,8 +74,6 @@ namespace Core
 
             if (_rigidbody2D.linearVelocity.magnitude < maxSpeed)
                 _rigidbody2D.AddForce(finalForce);
-
-
         }
 
         private void CheckAndBounceAtBounds()

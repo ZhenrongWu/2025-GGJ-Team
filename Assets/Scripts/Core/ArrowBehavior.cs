@@ -3,12 +3,10 @@ using UnityEngine;
 using Core;
 public class ArrowBehavior : MonoBehaviour
 {
-    public GameObject Bubbles;
-    public Transform Target;
+    
     [HideInInspector]
-    public float BubbleLifeTime;
+    public float BubbleLifeTime = 5;
     public float Counter;
-    public Vector3 Pos;
     [SerializeField]
     private AudioClip ClickSound;
     [SerializeField]
@@ -19,26 +17,11 @@ public class ArrowBehavior : MonoBehaviour
     BubbleController _BubbleController;
     void Start()
     {
-        _BubbleController = Bubbles.GetComponent<BubbleController>();
         Counter = 0;
-        Audio = GetComponent<AudioSource>();
     }
     void Update()
     {
-        Counter = _BubbleController.Counter;
-        if(_BubbleController.bubbleCount>0){
-            Target = Bubbles.transform.GetChild(0);
-        }
-        else if(Bubbles!=null){
-            Target = Bubbles.transform;
-        }
-        else if(Target == null){
-            gameObject.SetActive(false);
-        }
-        else{
-            transform.position = Vector3.Lerp(transform.position, Target.position + Pos, 0.1f);
-        }
-        transform.position = Vector3.Lerp(transform.position, Target.position + Pos, 0.1f);
+        Counter += Time.deltaTime;
         Flash();
     }
 
@@ -56,6 +39,7 @@ public class ArrowBehavior : MonoBehaviour
             else{
                 Sprite.enabled = false;
                 IsPlaying = false;
+                Debug.Log("Flash");
             }
         }
         else if(Counter < BubbleLifeTime * 2 / 3){
