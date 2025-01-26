@@ -1744,16 +1744,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1026752252014674898, guid: db761dfbcf1261148b237b5e7c185fd2, type: 3}
       propertyPath: interval
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1026752252014674898, guid: db761dfbcf1261148b237b5e7c185fd2, type: 3}
       propertyPath: character
       value: 
       objectReference: {fileID: 8497073400745508597}
-    - target: {fileID: 1026752252014674898, guid: db761dfbcf1261148b237b5e7c185fd2, type: 3}
-      propertyPath: bubblePrefab
-      value: 
-      objectReference: {fileID: 240284958328512785, guid: dcd71fe1b91d3fd4cadfe9f3be6eb2a6, type: 3}
     - target: {fileID: 1026752252014674898, guid: db761dfbcf1261148b237b5e7c185fd2, type: 3}
       propertyPath: bubbleSpawnPoint
       value: 
