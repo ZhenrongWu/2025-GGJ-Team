@@ -620,8 +620,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 863c8fcb68d94d2e9ecb8e89e44f3d5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: MainMenu
-  duration: 1
+  sceneName: 0_MainMenu
+  transition: {fileID: 11400000, guid: 57d2dee28715fc6499379ee5905b3caf, type: 2}
+  startDelay: 0
 --- !u!1 &8720599522840500633
 GameObject:
   m_ObjectHideFlags: 0
@@ -779,4 +780,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a657e89b3068437a99af1d4b04d25071, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 1
+  transition: {fileID: 11400000, guid: 57d2dee28715fc6499379ee5905b3caf, type: 2}
+  startDelay: 0
