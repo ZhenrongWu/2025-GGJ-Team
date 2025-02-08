@@ -1,7 +1,10 @@
+using System;
 using System.Collections;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.Rendering;
 
 namespace Core
 {
@@ -12,11 +15,12 @@ namespace Core
         [SerializeField] private float      spawnInterval   = 1;
         [SerializeField] private float      spacing         = 1;
         [SerializeField] private GameObject bubblePrefab;
-        [SerializeField] private GameObject character;
-        [SerializeField] private Transform  bubbleSpawnPoint;
+
+        public static event Action<BubbleSpawner> OnCharacterEvent;
 
         private Rigidbody2D _rigidbody2D;
         private Animator    _characterAnimator;
+        private Transform   _bubbleSpawnPoint;
 
         private float _timer;
         private int   _currentCount;
@@ -25,8 +29,9 @@ namespace Core
 
         private void Start()
         {
-            _characterAnimator = character.GetComponent<Animator>();
-            _rigidbody2D       = GetComponent<Rigidbody2D>();
+            OnCharacterEvent?.Invoke(this);
+
+            _rigidbody2D = GetComponent<Rigidbody2D>();
 
             _rigidbody2D.constraints = RigidbodyConstraints2D.FreezeAll;
             _currentCount            = words.Length;
@@ -75,7 +80,7 @@ namespace Core
 
         private void AddABubble(int index)
         {
-            var position = new Vector2(bubbleSpawnPoint.transform.position.x + spacing * index, transform.position.y);
+            var position = new Vector2(_bubbleSpawnPoint.transform.position.x + spacing * index, transform.position.y);
             var clone    = Instantiate(bubblePrefab, position, transform.rotation, gameObject.transform);
             clone.transform.localScale = Vector2.zero;
 
@@ -89,6 +94,12 @@ namespace Core
         {
             if (_currentCount > 0)
                 _currentCount -= 1;
+        }
+
+        public void SetCharacter(Animator animator, Transform bubbleSpawnPoint)
+        {
+            _characterAnimator = animator;
+            _bubbleSpawnPoint  = bubbleSpawnPoint;
         }
     }
 }
