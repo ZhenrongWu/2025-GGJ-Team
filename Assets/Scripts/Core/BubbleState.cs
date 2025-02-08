@@ -13,6 +13,7 @@ namespace Core
         private BubbleSpawner _bubbleSpawner;
         private ArrowScript   _arrow;
 
+        private bool _isTrigger;
         private bool _isActive;
 
         public bool IsActive
@@ -63,8 +64,11 @@ namespace Core
 
         public void TriggerCrackEffect()
         {
+            if (_isTrigger) return;
+
             _audioSource?.PlayOneShot(crackClip);
             _animator?.SetTrigger($"Crack");
+            _isTrigger = true;
         }
     }
 }
