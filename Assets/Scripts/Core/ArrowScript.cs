@@ -20,6 +20,8 @@ namespace Core
 
         public void SetArrowEffect()
         {
+            if (!gameObject.activeSelf) return;
+
             _timer += Time.deltaTime;
 
             if (_timer >= interval)
