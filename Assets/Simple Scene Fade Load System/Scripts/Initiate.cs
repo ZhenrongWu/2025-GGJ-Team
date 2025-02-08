@@ -10,10 +10,8 @@ public static class Initiate
     public static void Fade(string scene, Color col, float multiplier)
     {
         if (areWeFading)
-        {
-            Debug.Log("Already Fading");
+            // Debug.Log("Already Fading");
             return;
-        }
 
         var init = new GameObject();
         init.name = "Fader";

@@ -172,7 +172,7 @@ MonoBehaviour:
   words: Hello
   destroyInterval: 3
   spawnInterval: 1
-  offsetX: 1.8
+  spacing: 1.6
   bubblePrefab: {fileID: 240284958328512785, guid: dcd71fe1b91d3fd4cadfe9f3be6eb2a6, type: 3}
   character: {fileID: 0}
   bubbleSpawnPoint: {fileID: 0}

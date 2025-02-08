@@ -4,7 +4,7 @@ namespace Core
 {
     public class ArrowScript : MonoBehaviour
     {
-        [SerializeField] private float     interval = 1;
+        [SerializeField] private float     interval = .5f;
         [SerializeField] private AudioClip timerClip;
 
         private AudioSource    _audioSource;

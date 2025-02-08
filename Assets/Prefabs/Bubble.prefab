@@ -636,5 +636,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7711103b08296914983ca83b34b32293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interval: 0.1
+  totalDuration: 3
+  initialSegments: 12
+  growthRate: 2
+  interval: 0.5
+  minInterval: 0.01
+  decreaseRate: 0.05
   timerClip: {fileID: 8300000, guid: fe137155d4b6d6f45944521c46a6b710, type: 3}

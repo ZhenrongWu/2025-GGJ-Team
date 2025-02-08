@@ -10,7 +10,7 @@ namespace Core
         [SerializeField] private string     words           = "Hello";
         [SerializeField] private float      destroyInterval = 1;
         [SerializeField] private float      spawnInterval   = 1;
-        [SerializeField] private float      offsetX         = 1;
+        [SerializeField] private float      spacing         = 1;
         [SerializeField] private GameObject bubblePrefab;
         [SerializeField] private GameObject character;
         [SerializeField] private Transform  bubbleSpawnPoint;
@@ -75,7 +75,7 @@ namespace Core
 
         private void AddABubble(int index)
         {
-            var position = new Vector2(bubbleSpawnPoint.transform.position.x + offsetX * index, transform.position.y);
+            var position = new Vector2(bubbleSpawnPoint.transform.position.x + spacing * index, transform.position.y);
             var clone    = Instantiate(bubblePrefab, position, transform.rotation, gameObject.transform);
             clone.transform.localScale = Vector2.zero;
 
