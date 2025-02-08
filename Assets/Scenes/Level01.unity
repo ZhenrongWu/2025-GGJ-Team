@@ -1728,10 +1728,6 @@ PrefabInstance:
       value: Hi
       objectReference: {fileID: 0}
     - target: {fileID: 1026752252014674898, guid: db761dfbcf1261148b237b5e7c185fd2, type: 3}
-      propertyPath: spacing
-      value: 1.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1026752252014674898, guid: db761dfbcf1261148b237b5e7c185fd2, type: 3}
       propertyPath: interval
       value: 3
       objectReference: {fileID: 0}
