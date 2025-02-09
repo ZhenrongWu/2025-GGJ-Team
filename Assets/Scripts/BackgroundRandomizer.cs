@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BackgroundRandomizer : MonoBehaviour
 {
-    [SerializeField] private Sprite[] backgroundImages;
+    [SerializeField] private Sprite[] sprites;
 
     private SpriteRenderer _spriteRenderer;
 
@@ -10,6 +10,6 @@ public class BackgroundRandomizer : MonoBehaviour
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
 
-        _spriteRenderer.sprite = backgroundImages[Random.Range(0, backgroundImages.Length)];
+        _spriteRenderer.sprite = sprites[Random.Range(0, sprites.Length)];
     }
 }

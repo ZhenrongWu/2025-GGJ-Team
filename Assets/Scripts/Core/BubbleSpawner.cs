@@ -80,8 +80,9 @@ namespace Core
 
         private void AddABubble(int index)
         {
-            var position = new Vector2(_bubbleSpawnPoint.transform.position.x + spacing * index, transform.position.y);
-            var clone    = Instantiate(bubblePrefab, position, transform.rotation, gameObject.transform);
+            var position = new Vector2(_bubbleSpawnPoint.transform.position.x + spacing * index,
+                                       _bubbleSpawnPoint.position.y);
+            var clone = Instantiate(bubblePrefab, position, transform.rotation, gameObject.transform);
             clone.transform.localScale = Vector2.zero;
 
             var textMeshPro = clone.transform.GetChild(0).GetComponentInChildren<TextMeshPro>();
