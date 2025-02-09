@@ -4,17 +4,24 @@ using UnityEngine;
 
 public class FailDetector : MonoBehaviour
 {
-    [SerializeField] private BubbleSpawner      bubbleSpawner;
-    [SerializeField] private PassDetector       passDetector;
     [SerializeField] private string             sceneName;
     [SerializeField] private TransitionSettings transition;
     [SerializeField] private float              startDelay;
 
+    private BubbleSpawner _bubbleSpawner;
+    private PassDetector  _passDetector;
+
     private bool _isTransitioning;
+
+    private void Start()
+    {
+        _bubbleSpawner = FindFirstObjectByType<BubbleSpawner>();
+        _passDetector  = FindFirstObjectByType<PassDetector>();
+    }
 
     private void Update()
     {
-        if (bubbleSpawner.CurrentCount == 0 && !passDetector.IsPassing)
+        if (_bubbleSpawner.CurrentCount == 0 && !_passDetector.IsPassing)
         {
             if (_isTransitioning) return;
 
