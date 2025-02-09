@@ -1758,6 +1758,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db761dfbcf1261148b237b5e7c185fd2, type: 3}
+--- !u!114 &5359329710407914204 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 242849745327514685, guid: db761dfbcf1261148b237b5e7c185fd2, type: 3}
+  m_PrefabInstance: {fileID: 5359329710407914203}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a962279b3eeb4e4eb945641403e11ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &5565090224491311022
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1828,11 +1839,11 @@ PrefabInstance:
     - target: {fileID: 4155576811916535070, guid: e395cd504959a9b4e9dcde31af924f93, type: 3}
       propertyPath: passDetector
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8015427295484093255}
     - target: {fileID: 4155576811916535070, guid: e395cd504959a9b4e9dcde31af924f93, type: 3}
       propertyPath: bubbleSpawner
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5359329710407914204}
     - target: {fileID: 4959682800122718323, guid: e395cd504959a9b4e9dcde31af924f93, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
