@@ -6,7 +6,10 @@ namespace UI
     {
         protected override void HandleButtonClick()
         {
-            Application.Quit();
+            if (Application.platform == RuntimePlatform.WebGLPlayer)
+                Application.OpenURL(Application.absoluteURL);
+            else
+                Application.Quit();
         }
     }
 }
