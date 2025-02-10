@@ -25,7 +25,7 @@ namespace Core
         {
             _animator      = GetComponent<Animator>();
             _audioSource   = GetComponent<AudioSource>();
-            _bubbleSpawner = transform.parent.GetComponent<BubbleSpawner>();
+            _bubbleSpawner = FindFirstObjectByType<BubbleSpawner>();
             _arrow         = transform.GetChild(1).GetComponent<ArrowScript>();
         }
 

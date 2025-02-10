@@ -10,19 +10,26 @@ namespace Core
         [SerializeField] private float maxDistance   = 10;
         [SerializeField] private float inputCooldown = .2f;
 
-        private Rigidbody2D _rigidbody2D;
-        private Camera      _mainCamera;
+        private BubbleSpawner _bubbleSpawner;
+        private Rigidbody2D   _rigidbody2D;
+        private Camera        _mainCamera;
 
         private float _nextInputTime;
 
         private void Start()
         {
-            _rigidbody2D = GetComponent<Rigidbody2D>();
-            _mainCamera  = Camera.main;
+            _bubbleSpawner = FindFirstObjectByType<BubbleSpawner>();
+            _rigidbody2D   = GetComponent<Rigidbody2D>();
+            _mainCamera    = Camera.main;
+
+            SetRigidbodyFreezeAll();
         }
 
         private void Update()
         {
+            if (_bubbleSpawner.State != SpawnState.End) return;
+
+            _rigidbody2D.constraints = RigidbodyConstraints2D.None;
             HandlePlayerInput();
         }
 
@@ -44,6 +51,12 @@ namespace Core
 
             if (_rigidbody2D.linearVelocity.magnitude < maxSpeed)
                 _rigidbody2D.AddForce(finalForce);
+        }
+
+        // UnityEvent Callback
+        public void SetRigidbodyFreezeAll()
+        {
+            _rigidbody2D.constraints = RigidbodyConstraints2D.FreezeAll;
         }
     }
 }

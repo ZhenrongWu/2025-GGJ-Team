@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4331604166944210286}
   - component: {fileID: 5886273386606420006}
   - component: {fileID: 1957229395251706192}
-  - component: {fileID: 242849745327514685}
   m_Layer: 0
   m_Name: BubbleController
   m_TagString: Untagged
@@ -134,20 +133,3 @@ MonoBehaviour:
   minDistance: 1
   maxDistance: 10
   inputCooldown: 0.2
---- !u!114 &242849745327514685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 955469536106311791}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a962279b3eeb4e4eb945641403e11ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  words: Hi
-  destroyInterval: 3
-  spawnInterval: 1
-  spacing: 1.6
-  bubblePrefab: {fileID: 240284958328512785, guid: dcd71fe1b91d3fd4cadfe9f3be6eb2a6, type: 3}

@@ -1,50 +1,62 @@
-using System;
 using System.Collections;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Rendering;
 
 namespace Core
 {
+    public enum SpawnState
+    {
+        Start,
+        End
+    }
+
     public class BubbleSpawner : MonoBehaviour
     {
-        [SerializeField] private string     words           = "Hello";
-        [SerializeField] private float      destroyInterval = 1;
-        [SerializeField] private float      spawnInterval   = 1;
-        [SerializeField] private float      spacing         = 1;
-        [SerializeField] private GameObject bubblePrefab;
+        [SerializeField] private string      message         = "Hi";
+        [SerializeField] private float       destroyInterval = 1;
+        [SerializeField] private float       spawnInterval   = 1;
+        [SerializeField] private float       spacing         = 1;
+        [SerializeField] private GameObject  bubblePrefab;
+        [SerializeField] private Transform[] spawnPoints;
 
-        public static event Action<BubbleSpawner> OnCharacterEvent;
+        [Space] [SerializeField] private bool       isSpawnBubble;
+        [SerializeField]         private UnityEvent onCharacter2SpawnEvent;
 
-        private Rigidbody2D _rigidbody2D;
-        private Animator    _characterAnimator;
-        private Transform   _bubbleSpawnPoint;
+        private BubbleController _bubbleController;
 
         private float _timer;
-        private int   _currentCount;
-        private int   _currentIndex;
-        public  int   CurrentCount => _currentCount;
+        private int   _currentBubbleCount;
+        private int   _currentBubbleIndex;
+        private int   _characterIndex;
+
+        public int        CurrentBubbleCount => _currentBubbleCount;
+        public SpawnState State              { get; private set; } = SpawnState.Start;
 
         private void Start()
         {
-            OnCharacterEvent?.Invoke(this);
+            _bubbleController = FindFirstObjectByType<BubbleController>();
 
-            _rigidbody2D = GetComponent<Rigidbody2D>();
+            _currentBubbleCount = message.Length;
 
-            _rigidbody2D.constraints = RigidbodyConstraints2D.FreezeAll;
-            _currentCount            = words.Length;
+            _bubbleController.transform.position = spawnPoints[_characterIndex].position;
+            _bubbleController.transform.rotation = spawnPoints[_characterIndex].rotation;
 
-            AddABubble(_currentIndex);
+            AddABubble(_currentBubbleIndex);
         }
 
         private void Update()
         {
-            if (_currentIndex == words.Length)
+            if (isSpawnBubble)
             {
-                _rigidbody2D.constraints = RigidbodyConstraints2D.None;
-                _characterAnimator.SetTrigger($"Finish");
+                isSpawnBubble = false;
+                SpawnBubble();
+            }
+
+            if (_currentBubbleIndex == message.Length)
+            {
+                State = SpawnState.End;
 
                 StartCoroutine(SequentialBubbleState());
 
@@ -54,9 +66,25 @@ namespace Core
             AddBubbleAtIntervals();
         }
 
+        private void SpawnBubble()
+        {
+            onCharacter2SpawnEvent?.Invoke();
+
+            State = SpawnState.Start;
+
+            _currentBubbleIndex = 0;
+            _currentBubbleCount = message.Length;
+
+            _characterIndex++;
+            _bubbleController.transform.position = spawnPoints[_characterIndex].position;
+            _bubbleController.transform.rotation = spawnPoints[_characterIndex].rotation;
+
+            AddABubble(_currentBubbleIndex);
+        }
+
         private IEnumerator SequentialBubbleState()
         {
-            foreach (var bubbleState in GetComponentsInChildren<BubbleState>())
+            foreach (var bubbleState in _bubbleController.GetComponentsInChildren<BubbleState>())
             {
                 bubbleState.IsActive = true;
                 yield return new WaitForSeconds(destroyInterval);
@@ -71,36 +99,40 @@ namespace Core
             {
                 _timer = 0;
 
-                _currentIndex++;
+                _currentBubbleIndex++;
 
-                if (_currentIndex <= words.Length - 1)
-                    AddABubble(_currentIndex);
+                if (_currentBubbleIndex <= message.Length - 1)
+                    AddABubble(_currentBubbleIndex);
             }
         }
 
-        private void AddABubble(int index)
+        private void AddABubble(int bubbleIndex)
         {
-            var position = new Vector2(_bubbleSpawnPoint.transform.position.x + spacing * index,
-                                       _bubbleSpawnPoint.position.y);
-            var clone = Instantiate(bubblePrefab, position, transform.rotation, gameObject.transform);
-            clone.transform.localScale = Vector2.zero;
+            var position = new Vector2(spacing * bubbleIndex, 0);
+            var clone    = Instantiate(bubblePrefab, _bubbleController.transform, true);
+            clone.transform.localPosition = position;
+            clone.transform.rotation      = Quaternion.identity;
+            clone.transform.localScale    = Vector2.zero;
 
             var textMeshPro = clone.transform.GetChild(0).GetComponentInChildren<TextMeshPro>();
-            textMeshPro.text = words[index].ToString();
+            textMeshPro.text = message[bubbleIndex].ToString();
 
             clone.transform.DOScale(Vector2.one, 1).SetEase(Ease.InOutBounce).SetLink(gameObject);
         }
 
         public void ReduceBubbleCount()
         {
-            if (_currentCount > 0)
-                _currentCount -= 1;
+            if (_currentBubbleCount > 0)
+                _currentBubbleCount -= 1;
         }
 
-        public void SetCharacter(Animator animator, Transform bubbleSpawnPoint)
+        public void ReceiveMessage()
         {
-            _characterAnimator = animator;
-            _bubbleSpawnPoint  = bubbleSpawnPoint;
+            var newMessage = "";
+            for (var i = message.Length - _currentBubbleCount; i < message.Length; i++)
+                newMessage += message[i].ToString();
+
+            message = newMessage;
         }
     }
 }

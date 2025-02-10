@@ -21,7 +21,7 @@ public class FailDetector : MonoBehaviour
 
     private void Update()
     {
-        if (_bubbleSpawner.CurrentCount == 0 && !_passDetector.IsPassing)
+        if (_bubbleSpawner.CurrentBubbleCount == 0 && !_passDetector.IsPassing)
         {
             if (_isTransitioning) return;
 
