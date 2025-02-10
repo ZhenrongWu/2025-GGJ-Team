@@ -44,8 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d80462ea37a43aab0ca8b1a5aead44a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubbleSpawner: {fileID: 0}
-  passDetector: {fileID: 0}
   sceneName: _Fail
   transition: {fileID: 11400000, guid: 57d2dee28715fc6499379ee5905b3caf, type: 2}
-  startDelay: 0
+  startDelay: 1

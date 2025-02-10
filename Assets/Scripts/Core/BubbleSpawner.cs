@@ -21,8 +21,7 @@ namespace Core
         [SerializeField] private GameObject  bubblePrefab;
         [SerializeField] private Transform[] spawnPoints;
 
-        [Space] [SerializeField] private bool       isSpawnBubble;
-        [SerializeField]         private UnityEvent onCharacter2SpawnEvent;
+        [Space] [SerializeField] private UnityEvent onCharacter2SpawnEvent;
 
         private BubbleController _bubbleController;
 
@@ -31,8 +30,16 @@ namespace Core
         private int   _currentBubbleIndex;
         private int   _characterIndex;
 
-        public int        CurrentBubbleCount => _currentBubbleCount;
-        public SpawnState State              { get; private set; } = SpawnState.Start;
+        public  int  CurrentBubbleCount => _currentBubbleCount;
+        private bool _isSpawnBubble;
+
+        public bool IsSpawnBubble
+        {
+            get => _isSpawnBubble;
+            set => _isSpawnBubble = value;
+        }
+
+        public SpawnState State { get; private set; } = SpawnState.Start;
 
         private void Start()
         {
@@ -48,9 +55,9 @@ namespace Core
 
         private void Update()
         {
-            if (isSpawnBubble)
+            if (_isSpawnBubble)
             {
-                isSpawnBubble = false;
+                _isSpawnBubble = false;
                 SpawnBubble();
             }
 
@@ -86,7 +93,7 @@ namespace Core
         {
             foreach (var bubbleState in _bubbleController.GetComponentsInChildren<BubbleState>())
             {
-                bubbleState.IsActive = true;
+                bubbleState.CanDestroy = true;
                 yield return new WaitForSeconds(destroyInterval);
             }
         }

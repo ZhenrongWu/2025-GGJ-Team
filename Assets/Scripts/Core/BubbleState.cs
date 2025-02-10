@@ -14,11 +14,11 @@ namespace Core
         private ArrowScript   _arrow;
 
         private bool _isTrigger;
-        private bool _isActive;
+        private bool _canDestroy;
 
-        public bool IsActive
+        public bool CanDestroy
         {
-            set => _isActive = value;
+            set => _canDestroy = value;
         }
 
         private void Start()
@@ -31,10 +31,11 @@ namespace Core
 
         private void Update()
         {
-            if (!_isActive) return;
+            HandleAnimationEnd("Crack");
+
+            if (!_canDestroy) return;
 
             IntervalCrackBubble();
-            HandleAnimationEnd("Crack");
 
             _arrow.SetArrowEffect();
         }
@@ -55,7 +56,7 @@ namespace Core
         private void HandleAnimationEnd(string animationName)
         {
             var stateInfo = _animator.GetCurrentAnimatorStateInfo(0);
-            if (stateInfo.normalizedTime >= .95f && stateInfo.IsName(animationName))
+            if (stateInfo.normalizedTime >= .75f && stateInfo.IsName(animationName))
             {
                 _bubbleSpawner.ReduceBubbleCount();
                 Destroy(gameObject);
