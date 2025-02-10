@@ -115,7 +115,8 @@ namespace Core
 
         private void AddABubble(int bubbleIndex)
         {
-            var position = new Vector2(spacing * bubbleIndex, 0);
+            var x        = (_currentBubbleIndex - (_currentBubbleCount - 1) / 2f) * spacing;
+            var position = new Vector2(x, 0);
             var clone    = Instantiate(bubblePrefab, _bubbleController.transform, true);
             clone.transform.localPosition = position;
             clone.transform.rotation      = Quaternion.identity;
